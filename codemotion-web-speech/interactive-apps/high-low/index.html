@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Adivinar el número</title>
+  <link rel="shortcut icon" href="/favicon.png">
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Intenta adivinar el número que está pensando el navegador">
+  <meta name="author" content="Jorge Aguirre">
+  <meta property="og:title" content="Adivinar el número">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Intenta adivinar el número que está pensando el navegador">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="main">
+    <h1 class="title">Adivinar el número</h1>
+    <p class="rules">
+      Voy a pensar un número entre el 1 y el 100. Tú me tienes que ir diciendo números hasta adivinarlo.
+      Cada vez que me digas un número incorrecto, yo te diré si el número es menor o mayor que el que yo he pensado.
+      ¡Mucha suerte! 
+    </p>
+    <p class="requirements"></p>
+    <button class="start" disabled>Comenzar</button>
+    <hr class="separator" />
+    <div class="game hidden">
+      <button class="attempt">Decir número</button>
+      <div class="attempts"></div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

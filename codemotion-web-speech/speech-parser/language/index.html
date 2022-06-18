@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Speech Recognition</title>
+  <link rel="shortcut icon" href="/favicon.png">
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ejemplo de transcripción de texto a audio">
+  <meta name="author" content="Jorge Aguirre">
+  <meta property="og:title" content="Speech Parser">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Ejemplo de transcripción de texto a audio">
+</head>
+
+<body>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .main {
+      margin: 0px auto;
+      max-width: 600px;
+      min-height: 100vh;
+      padding: 100px 20px;
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .button {
+      background: transparent;
+      padding: 16px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .3s;
+      display: block;
+      margin: 0 auto 30px;
+    }
+    .button:hover {
+      background-color: rgba(0,0,0, .1);
+    }
+    .description {
+      margin-bottom: 4px;
+    }
+    .input {
+      border: 1px solid black;
+      border-radius: 4px;
+      padding: 20px;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    .input.error {
+      border-color: red;
+      color: red;
+    }
+    .section {
+      margin-bottom: 50px;
+      display: flex;
+      align-items: center;
+    }
+    .radio {
+      margin-right: 4px;
+      cursor: pointer;
+    }
+    .label {
+      font-size: 32px;
+      margin-right: 30px;
+      cursor: pointer;
+    }
+  </style>
+
+  <main class="main">
+    <h1 class="title">Transcripción a voz</h1>
+    <input type="text" class="input" placeholder="Escribe aquí el texto" />
+    <section class="section">
+      <input class="radio" type="radio" name="language" id="es" value="es" checked>
+      <label class="label" for="es">🇪🇸</label>
+      <input class="radio" type="radio" name="language" id="en" value="en">
+      <label class="label" for="en">🇬🇧</label>
+      <input class="radio" type="radio" name="language" id="de" value="de">
+      <label class="label" for="de">🇩🇪</label>
+    </section>
+    <button class="button">📢 Hablar</button>
+  </main>
+  <script>
+    // Tiene un soporte bastante completo!
+    const synth = window.speechSynthesis
+
+    const button = document.querySelector(".button")
+    const input = document.querySelector(".input")
+
+    // Si es undefined - no podemos utilizar esta parte de la Web Speech API
+    if (typeof synth === 'undefined') {
+      input.classList.add("error")
+      input.setAttribute("disabled", "disabled")
+      input.value = 'No se puede utilizar la transcripción a voz en este navegador'
+    }
+
+    else {
+
+      // Iniciamos el reconocimiento de voz
+      button.addEventListener("click", ()=> {
+
+        const language = document.querySelector(".radio:checked").value
+
+        button.setAttribute("disabled", "disabled")
+        input.setAttribute("disabled", "disabled")
+
+        // Elegimos una voz disponible
+        const voice = synth.getVoices().find(voice=> voice.lang.startsWith(language))
+        if (!voice) {
+          input.value = 'No hay una voz disponible para reproducir el texto'
+        }
+
+        const text = input.value
+        const utterance = new SpeechSynthesisUtterance(text)
+        utterance.voice = voice
+        utterance.onend = ()=> {
+          button.removeAttribute("disabled")
+          input.removeAttribute("disabled")
+        }
+        utterance.onerror = ()=> {
+          button.removeAttribute("disabled")
+          input.removeAttribute("disabled")
+        }
+        synth.speak(utterance)
+      })
+    }
+  </script>
+</body>
+</html>

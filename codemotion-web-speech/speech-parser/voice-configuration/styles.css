@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  margin: 0px auto;
+  max-width: 600px;
+  min-height: 100vh;
+  padding: 100px 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.button {
+  background: transparent;
+  padding: 16px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .3s;
+  display: block;
+  margin: 0 auto 30px;
+}
+
+.button:hover {
+  background-color: rgba(0,0,0, .1);
+}
+
+.description {
+  margin-bottom: 4px;
+}
+
+.input {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 20px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.input.error {
+  border-color: red;
+  color: red;
+}
+
+.select {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 20px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.config {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.config-select {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 32px;
+}

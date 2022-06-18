@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Speech Recognition</title>
+  <link rel="shortcut icon" href="/favicon.png">
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ejemplo de transcripción de texto a audio">
+  <meta name="author" content="Jorge Aguirre">
+  <meta property="og:title" content="Speech Parser">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Ejemplo de transcripción de texto a audio">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="main">
+    <h1 class="title">Transcripción a voz</h1>
+    <input type="text" class="input" placeholder="Escribe aquí el texto" />
+    <select class="select">
+      <option selected disabled>Elige una opción</option>
+    </select>
+    <div class="options">
+      <section class="config">
+        <label class="label" for="rate">Velocidad</label>
+        <select name="rate" class="config-select">
+          <option value="0.5">Lento</option>
+          <option selected value="1">Normal</option>
+          <option value="1.5">Rápido</option>
+          <option value="2">Muy rápido</option>
+        </select>
+      </section>
+      <section class="config">
+        <label class="label" for="pitch">Tono</label>
+        <select name="pitch" class="config-select">
+          <option value="0.5">Grave</option>
+          <option selected value="1">Normal</option>
+          <option value="1.5">Agudo</option>
+        </select>
+      </section>
+    </div>
+    <button class="button">📢 Hablar</button>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

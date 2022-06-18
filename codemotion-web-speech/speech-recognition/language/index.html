@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Speech Recognition</title>
+  <link rel="shortcut icon" href="/favicon.png">
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ejemplo de transcripción de audio a texto">
+  <meta name="author" content="Jorge Aguirre">
+  <meta property="og:title" content="Speech Recognition">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Ejemplo de transcripción de audio a texto">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="main">
+    <h1 class="title">Reconocimiento de voz</h1>
+    <section class="language">
+      <select name="lang" class="select">
+        <option selected value="es">🇪🇸 Español</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="fr">🇫🇷 Français</option>
+      </select>
+    </section>
+    <button class="button" disabled>🎤 Escuchar</button>
+    <p class="description">Resultado:</p>
+    <p class="result"></p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

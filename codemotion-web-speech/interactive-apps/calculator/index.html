@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Calculadora</title>
+  <link rel="shortcut icon" href="/favicon.png">
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Una calculadora interactiva capaz de sumar, restar...">
+  <meta name="author" content="Jorge Aguirre">
+  <meta property="og:title" content="Calculadora">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Una calculadora interactiva capaz de sumar, restar...">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="main">
+    <h1 class="title">Calculadora</h1>
+    <p class="description">
+      Todavía es una calculadora muy básica, pero puedes intentar 
+      <strong>sumar</strong>, <strong>restar</strong>, <strong>multiplicar</strong>,
+      <strong>dividir</strong> números, y te indicará el resultado correcto
+    </p>
+    <p class="requirements"></p>
+    <button class="calculate" disabled>Usar calculadora</button>
+    <div class="section">
+      <span class="label">Lo que he entendido:</span>
+      <span class="input"></span>
+    </div>
+    <div class="section">
+      <span class="label">Cómo lo he transformado:</span>
+      <span class="operation"></span>
+    </div>
+    <div class="section">
+      <span class="label">El resultado final:</span>
+      <span class="result"></span>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

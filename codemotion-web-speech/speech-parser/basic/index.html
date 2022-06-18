@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Speech Recognition</title>
+  <link rel="shortcut icon" href="/favicon.png">
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ejemplo de transcripción de texto a audio">
+  <meta name="author" content="Jorge Aguirre">
+  <meta property="og:title" content="Speech Parser">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Ejemplo de transcripción de texto a audio">
+</head>
+
+<body>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .main {
+      margin: 0px auto;
+      max-width: 600px;
+      min-height: 100vh;
+      padding: 100px 20px;
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .button {
+      background: transparent;
+      padding: 16px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .3s;
+      display: block;
+      margin: 0 auto 30px;
+    }
+    .button:hover {
+      background-color: rgba(0,0,0, .1);
+    }
+  </style>
+
+  <main class="main">
+    <h1 class="title">Transcripción a voz</h1>
+    <button class="button" disabled>📢 Hablar</button>
+  </main>
+  <script>
+    // Tiene un soporte bastante completo!
+    const synth = window.speechSynthesis
+
+    const button = document.querySelector(".button")
+    
+    // Si es undefined - no podemos utilizar esta parte de la Web Speech API
+    if (typeof synth !== 'undefined') {
+      button.removeAttribute("disabled")
+      
+      // Iniciamos el reconocimiento de voz
+      button.addEventListener("click", ()=> {
+        button.setAttribute("disabled", "disabled")
+
+        // En utterance configuramos la frase que dirá y el idioma que queremos que use
+        const utterance = new SpeechSynthesisUtterance('Hola mundo')
+        utterance.voice = synth.getVoices().find(voice=> voice.lang.startsWith("es"))
+
+        // Cuando termine de hablar
+        utterance.onend = ()=> button.removeAttribute("disabled")
+
+        // Inicia la reproducción de voz
+        synth.speak(utterance)
+      })
+    }
+  </script>
+</body>
+</html>

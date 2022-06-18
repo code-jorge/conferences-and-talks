@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Speech Recognition</title>
+  <link rel="shortcut icon" href="/favicon.png">
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ejemplo de transcripción de audio a texto">
+  <meta name="author" content="Jorge Aguirre">
+  <meta property="og:title" content="Speech Recognition">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Ejemplo de transcripción de audio a texto">
+</head>
+
+<body>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .main {
+      margin: 0px auto;
+      max-width: 600px;
+      min-height: 100vh;
+      padding: 100px 20px;
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .button {
+      background: transparent;
+      padding: 16px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .3s;
+      display: block;
+      margin: 0 auto 30px;
+    }
+    .button:hover {
+      background-color: rgba(0,0,0, .1);
+    }
+    .description {
+      margin-bottom: 4px;
+    }
+    .result {
+      border: 1px solid black;
+      border-radius: 4px;
+      padding: 20px;
+    }
+    .result.error {
+      border-color: red;
+      color: red;
+    }
+  </style>
+
+  <main class="main">
+    <h1 class="title">Reconocimiento de voz</h1>
+    <button class="button" disabled>🎤 Escuchar</button>
+    <p class="description">Resultado:</p>
+    <p class="result"></p>
+  </main>
+  <script>
+    // Chrome y Edge utilizan el prefijo webkit - comprobamos también
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+    const button = document.querySelector(".button")
+    const result = document.querySelector(".result")
+
+    // Si es undefined - no podemos utilizar esta parte de la Web Speech API
+    if (typeof SpeechRecognition === 'undefined') {
+      result.classList.add("error")
+      result.innerHTML = 'No se puede utilizar el reconocimiento de voz en este navegador'
+    }
+
+    else {
+      // Iniciamos el reconocimiento de voz
+      const recognition = new SpeechRecognition()
+      recognition.continuous = false
+      recognition.lang = 'es-ES'
+      recognition.interimResults = false
+      recognition.maxAlternatives = 1
+
+      // Configuramos el botón!
+      button.removeAttribute("disabled")
+      button.addEventListener("click", ()=> {
+        recognition.start()
+      })
+
+      // Procesamos el resultado!
+      recognition.addEventListener("result", event=> {
+        const text = event.results[0][0].transcript
+        result.innerHTML = text
+      })
+    }
+
+  </script>
+</body>
+</html>
