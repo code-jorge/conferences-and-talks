@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Instagraph</title>
+    <meta name="description" content="Variables en CSS - Canarias JS - Mayo 2022">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <p class="title">Instagraph</p>
+      <div class="buttons">
+        <button
+          class="dark-button"
+          type="button"
+          onclick="body.classList.toggle('dark')"
+        >
+          <i class="material-icons">dark_mode</i>
+        </button>
+        <button
+          class="zoom-button"
+          type="button"
+          onclick="body.classList.toggle('zoom')"
+        >
+          <i class="material-icons"></i>
+        </button>
+      </div>
+    </header>
+    <main class="main">
+      <div class="profile">
+        <img class="profile-image" src="galeria/perfil.jpeg" />
+        <div class="profile-info">
+          <p class="name">@ja_codes</p>
+          <div class="follow">
+            <p class="followers">Seguidores: <span>1.234</span></p>
+            <p class="following">Siguiendo: <span>1.234</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="gallery">
+        <img class="image" src="galeria/graph-01.png">
+        <img class="image" src="galeria/graph-02.png">
+        <img class="image" src="galeria/graph-03.png">
+        <img class="image" src="galeria/graph-04.png">
+        <img class="image" src="galeria/graph-05.png">
+        <img class="image" src="galeria/graph-06.png">
+        <img class="image" src="galeria/graph-07.png">
+        <img class="image" src="galeria/graph-08.png">
+        <img class="image" src="galeria/graph-09.png">
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="footer-text">Jorge Aguirre</p>
+      <p class="footer-text">Esta no es mi vieja yegua gris</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Qwitter</title>
+    <meta name="description" content="Variables en CSS - Canarias JS - Mayo 2022">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <p class="name">Qwitter</p>
+    </header>
+    <main id="main" class="main">
+      <h1 class="title">Elige el hábito tóxico que quieres dejar</h1>
+      <div class="cards">
+        <div class="card">
+          <div class="card-front">
+            <p class="message">
+              No disfrutar del domingo por la tarde pensando que al día siguiente es lunes 
+            </p>
+          </div>
+          <div class="card-back">
+            <p class="message">
+              ¡Pues a por ello, valiente!
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-front">
+            <p class="message">
+              Intentar convencer a la gente de que programar es divertido
+            </p>
+          </div>
+          <div class="card-back">
+            <p class="message">
+              ¡Pues a por ello, valiente!
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-front">
+            <p class="message">
+              Comerte todas las Oreo de la caja de una sentada
+            </p>
+          </div>
+          <div class="card-back">
+            <p class="message">
+              ¡Pues a por ello, valiente!
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener("click", ()=> card.classList.add("active"));  
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fatebook</title>
+    <meta name="description" content="Variables en CSS - Canarias JS - Mayo 2022">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <p class="title">Fatebook</p>
+      <div class="buttons">
+        <select class="select" id="size">
+          <option value="20px">Pequeño</option>
+          <option selected value="24px">Mediano</option>
+          <option value="28px">Grande</option>
+          <option value="32px">Muy grande</option>
+        </select>
+      </div>
+    </header>
+    <main id="main" class="main">
+      <div class="text">
+        Naron, de la longeva raza rigeliana, era el cuarto de su estirpe que llevaba los anales galácticos. Tenía en su poder el gran libro que contenía la lista de las numerosas razas de todas las galaxias que habían adquirido el don de la inteligencia, y el libro, mucho menor, en el que figuraban las que habían llegado a la madurez y poseían méritos para formar parte de la Federación Galáctica. En el primer libro habían tachado algunos nombres anotados con anterioridad: los de las razas que, por el motivo que fuere, habían fracasado. La mala fortuna, las deficiencias bioquímicas o biofísicas, la falta de adaptación social se cobraban su tributo. Sin embargo, en el libro pequeño nunca se había tenido que tachar ninguno de los nombres anotados.
+        <br /><br />
+        En aquel momento, Naron, enormemente corpulento e increíblemente anciano, levantó la vista al notar que se acercaba un mensajero.
+        <br /><br />
+        -Naron -saludó el mensajero-. ¡Gran Señor!
+        <br /><br />
+        -Bueno, bueno, ¿qué hay? Menos ceremonias.
+        <br /><br />
+        -Otro grupo de organismos ha llegado a la madurez.
+        <br /><br />
+        -Estupendo, estupendo. Hoy en día ascienden muy aprisa. Apenas pasa año sin que llegue un grupo nuevo. ¿Quiénes son?
+        <br /><br />
+        El mensajero dio el número clave de la galaxia y las coordenadas del mundo en cuestión.
+        <br /><br />
+        -Ah, sí -dijo Naron- lo conozco.
+        <br /><br />
+        Y con buena letra cursiva anotó el dato en el primer libro, trasladando luego el nombre del planeta al segundo. Utilizaba, como de costumbre, el nombre bajo el cual era conocido el planeta por la fracción más numerosa de sus propios habitantes.
+        <br /><br />
+        Escribió, pues: La Tierra.
+        <br /><br />
+        -Estas criaturas nuevas -dijo luego- han establecido un récord. Ningún otro grupo ha pasado tan rápidamente de la inteligencia a la madurez. No será una equivocación, espero.
+        <br /><br />
+        -De ningún modo, señor -respondió el mensajero.
+        <br /><br />
+        -Han llegado al conocimiento de la energía termonuclear, ¿no es cierto?
+        <br /><br />
+        -Sí, señor.
+        <br /><br />
+        -Bien, ese es el requisito -Naron soltó una risita-. Sus naves sondearán pronto el espacio y se pondrán en contacto con la Federación.
+        <br /><br />
+        -En realidad, señor -dijo el mensajero con renuencia-, los observadores nos comunican que todavía no han penetrado en el espacio.
+        <br /><br />
+        Naron se quedó atónito.
+        <br /><br />
+        -¿Ni poco ni mucho? ¿No tienen siquiera una estación espacial?
+        <br /><br />
+        -Todavía no, señor.
+        <br /><br />
+        -Pero si poseen la energía termonuclear, ¿dónde realizan las pruebas y las explosiones?
+        <br /><br />
+        -En su propio planeta, señor.
+        <br /><br />
+        Naron se irguió en sus seis metros de estatura y tronó:
+        <br /><br />
+        -¿En su propio planeta?
+        <br /><br />
+        -Si, señor.
+        <br /><br />
+        Con gesto pausado, Naron sacó la pluma y tachó con una raya la última anotación en el libro pequeño. Era un hecho sin precedentes; pero es que Naron era muy sabio y capaz de ver lo inevitable, como nadie, en la galaxia.
+        <br /><br />
+        -¡Asnos estúpidos! -murmuró.
+        <br /><br />
+      </div>
+    </main>
+    <script>
+      const root = document.documentElement;
+      document.getElementById("size").addEventListener("change", e => {
+        const size = e.target.value;
+        root.style.setProperty("--size", size);
+      });
+
+      const main = document.getElementById("main");
+      main.addEventListener("scroll", e=> {
+        const max = main.scrollHeight - main.offsetHeight;
+        const scroll = main.scrollTop / max;
+        root.style.setProperty("--scroll", scroll);
+      })
+    </script>
+  </body>
+</html>

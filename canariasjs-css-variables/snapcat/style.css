@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.lantern {
+  --x-coordinate: calc(100% * var(--mouse-x, .5));
+  --y-coordinate: calc(100% * var(--mouse-y, .5));
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  cursor: none;
+  background-image: radial-gradient(
+    circle at var(--x-coordinate) var(--y-coordinate), 
+    transparent, 
+    black 80px
+  ); 
+}
+
+/* Foro de Dorothea OLDANI en Unsplash */
+.painting {
+  background: url("galeria/snapcat.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+}

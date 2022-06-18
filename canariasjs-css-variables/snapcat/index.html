@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snapcat</title>
+    <meta name="description" content="Variables en CSS - Canarias JS - Mayo 2022">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="lantern"></div>
+    <div class="painting"></div>
+    <script>
+      const root = document.documentElement;
+      document.addEventListener("mousemove", e=> {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        root.style.setProperty("--mouse-x", x);
+        root.style.setProperty("--mouse-y", y);
+      });
+    </script>
+  </body>
+</html>
